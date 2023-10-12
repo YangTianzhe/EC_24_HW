@@ -4,9 +4,15 @@
 
 #include "../Inc/main.h"
 #include "../Inc/robot.h"
+#include "../Inc/Attack.h"
 
 int main() {
-    RobotPos pos{0,0,0,0};
-    moveRobot(&pos, 1, 20000);
+    Robot robot_blue,robot_red;
+    initRobot(&robot_blue,100);
+    initRobot(&robot_red,100);
+    moveRobot(&robot_blue.pos, 1, 20000);
+    rotateYawRobot(&robot_blue.pos, 90);
+    rotatePitchRobot(&robot_blue.pos, 90);
+    AttackWithProbability(&robot_blue,&robot_red,100,0.8);
     return 0;
 }
